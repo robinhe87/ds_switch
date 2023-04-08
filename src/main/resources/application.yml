@@ -1,0 +1,39 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.47.128:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: 123456
+      break-after-acquire-failure: true #连接失败就退出获取连接
+      connection-error-retry-attempts: 3 #最大尝试连接次数
+      initial-size: 10
+      max-active: 50
+      min-idle: 5
+      max-wait: 3000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+    slave:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://192.168.47.129:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: 123456
+      break-after-acquire-failure: true #连接失败就退出获取连接
+      connection-error-retry-attempts: 3 #最大尝试连接次数
+      initial-size: 10
+      max-active: 50
+      min-idle: 5
+      max-wait: 3000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
